@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import styled from "styled-components";
 import { FaBars } from "react-icons/fa";
@@ -23,7 +23,7 @@ const MenuBar = styled(FaBars)`
 const NavMenu = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 48px;
+  justify-content: space-between;
   @media Screen and (max-width: 1200px) {
     display: none;
   }
@@ -71,15 +71,23 @@ const NavBtn = styled.div`
 `;
 
 const Navbar = ({ toggle }) => {
-
+  const [colorChange, setColorchange] = useState(false);
+  const changeNavbarColor = () => {
+    if (window.scrollY >= 30) {
+      setColorchange(true);
+    } else {
+      setColorchange(false);
+    }
+  };
+  window.addEventListener("scroll", changeNavbarColor);
   return (
-    <nav>
+    <nav className={colorChange ? "Itump active" : "Itump"}>
       <MenuBar onClick={toggle} />
       <NavMenu>
         <div>
           <h1>WELCOME TO GALLERY</h1>
         </div>
-        <NavBtn className="btn">
+        <NavBtn>
           <LoginButton/>
           <LogoutButton />
         </NavBtn>
