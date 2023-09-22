@@ -13,7 +13,8 @@ const Index=()=> {
     setIsOpen(!isOpen);
   };
   return (
-    <div>
+    <div style={{background:
+      "linear-gradient(136.51deg, #4C7FB5 1.15%, rgba(76, 127, 181, 0) 101.51%)",}}>
       <Navbar toggle={toggle}/>
       <Dropdown isOpen={isOpen} toggle={toggle}/>
       <div className="container p-2">
