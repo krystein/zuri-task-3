@@ -1,0 +1,24 @@
+.Itump {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  z-index: 100;
+  background-color: transparent;
+  top: 0;
+  position: fixed;
+  width: 100%;
+  transition: 0.5s;
+  align-items: center;
+
+}
+@media (max-width: 1200px) {
+  .Itump {
+    padding: 0;
+    transition: 0.8s all ease;
+  }
+}
+.active {
+  background-color: #02132f;
+  transition: 0.5s;
+}
