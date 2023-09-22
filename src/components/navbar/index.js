@@ -76,6 +76,9 @@ const Navbar = ({ toggle }) => {
     <nav>
       <MenuBar onClick={toggle} />
       <NavMenu>
+        <div>
+          <h1>WELCOME TO GALLERY</h1>
+        </div>
       </NavMenu>
         <NavBtn className="btn">
           <LoginButton/>
