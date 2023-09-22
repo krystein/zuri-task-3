@@ -45,6 +45,7 @@ const CloseIcon = styled(FaTimes)`
 
 const BtnWarp = styled.div`
   display: grid;
+  grid-gap: 20px;
   align-items: center;
   justify-content: center;
   margin-top: 10px;
