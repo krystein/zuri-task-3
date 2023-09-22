@@ -59,6 +59,7 @@ const imageUrlsSearch = _.filter(imageUrls, (imageUrl) => {
             imageUrlsSearch.map((imageUrl, index) => (
             <div  key={index} className="col-sm-3 col-md-3 col-lg-3 p-2 card">
               <img key={index} src={imageUrl.url} alt={`${index}`} className="img-fluid"/>
+              <p>##{index}</p>
             </div>)
           ))}
         </div>
