@@ -26,13 +26,13 @@ const ImageGallery = () => {
     <div className="container justify-content-center align-items-center h-100">
       {isAuthenticated ? (
         <div>
-          <p>Welcome, {user.name}!</p>
+          <h2>Welcome, {user.name}!</h2>
           <DragDropImageloader accessToken={accessToken} />
           <ImageDetail />
         </div>
       ) : (
         <div>
-        <p>Please log in to access the image gallery.</p>
+        <h2>Please log in to access the image gallery.</h2>
         <Countdown/>
         </div>
       )}
