@@ -60,6 +60,7 @@ const DragDropImageLoader = () => {
           {
             name: files[i].name,
             url: URL.createObjectURL(files[i]),
+            filedata: files[i]
           },
         ]);
       }
@@ -77,9 +78,10 @@ const uploadTest= () =>{
     })
     .then(res => {
       console.log(res);
-      // setTimeout(() => {
-      //   window.location.reload();
-      // }, 500);
+      deleteImage();
+      setTimeout(() => {
+        window.location.reload();
+      }, 500);
     })
     .catch((error) => console.error('Error uploading image', error))
   });
