@@ -83,7 +83,7 @@ const Dropdown = ({ isOpen, toggle }) => {
       <DropdownWrapper>
         <DropdownMenu>
         <BtnWarp>
-        <div className="btn">
+        <div className="btn m-2">
             <LoginButton/>
           <LogoutButton />
             </div>
