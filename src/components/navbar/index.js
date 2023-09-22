@@ -83,7 +83,7 @@ const Navbar = ({ toggle }) => {
   return (
     <nav className={colorChange ? "Itump active" : "Itump"}>
       <MenuBar onClick={toggle} />
-      <NavMenu>
+      <NavMenu className="container">
         <div>
           <h1>WELCOME TO GALLERY</h1>
         </div>
