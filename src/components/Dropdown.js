@@ -9,7 +9,8 @@ const DropdownContainer = styled.div`
   z-index: 999;
   width: 100%;
   height: 70vh;
-  background: #08111c;
+  background:
+      linear-gradient(136.51deg, #4C7FB5 1.15%, rgba(76, 127, 181, 0) 101.51%);
   display: grid;
   align-items: center;
   top: ${({ isOpen }) => (isOpen ? "0" : "-110%")};
