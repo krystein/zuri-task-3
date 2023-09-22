@@ -5,7 +5,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const ImageViewer = () => {
   const [imageUrls, setImageUrls] = useState([]);
-  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [search,setSearch] = useState('');
 
@@ -32,8 +31,8 @@ const imageUrlsSearch = _.filter(imageUrls, (imageUrl) => {
   return (
     <div>
       <h2>Uploaded Images</h2>
-      {error ? (
-        <p>Error: {error}</p>
+      {loading ? (
+        <p>loading.....</p>
       ) : (
         <div className="container">
           <form className="p-3">
@@ -58,7 +57,7 @@ const imageUrlsSearch = _.filter(imageUrls, (imageUrl) => {
           ) : (
             imageUrlsSearch.map((imageUrl, index) => (
             <div  key={index} className="col-sm-3 col-md-3 col-lg-3 p-2 card">
-              <img src={imageUrl.url} alt={`Image ${index}`} className="img-fluid"/>
+              <img src={imageUrl.url} alt={`${index}`} className="img-fluid"/>
             </div>)
           ))}
         </div>
