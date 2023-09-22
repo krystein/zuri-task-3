@@ -77,10 +77,9 @@ const uploadTest= () =>{
     })
     .then(res => {
       console.log(res);
-      deleteImage();
-      setTimeout(() => {
-        window.location.reload();
-      }, 500);
+      // setTimeout(() => {
+      //   window.location.reload();
+      // }, 500);
     })
     .catch((error) => console.error('Error uploading image', error))
   });
