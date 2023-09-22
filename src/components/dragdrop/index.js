@@ -3,7 +3,7 @@ import axios from "axios";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./style.css";
 
-const DragDropImageLoader = () => {
+const DragDropImageLoader = ({ reloadGallery }) => {
   const [images, setImages] = useState([]);
   const [isDrag, setIsDrag] = useState(false);
   const fileInputRef = useRef(null);
@@ -52,20 +52,21 @@ const DragDropImageLoader = () => {
     event.preventDefault();
     setIsDrag(false);
     const files = event.dataTransfer.files;
+    if (files.length === 0) return;
+    const newImages = [];
     for (let i = 0; i < files.length; i++) {
       if (files[i].type.split("/")[0] !== "image") continue;
       if (!images.some((e) => e.name === files[i].name)) {
-        setImages((prevImages) => [
-          ...prevImages,
-          {
-            name: files[i].name,
-            url: URL.createObjectURL(files[i]),
-            filedata: files[i]
-          },
-        ]);
+        newImages.push({
+          name: files[i].name,
+          url: URL.createObjectURL(files[i]),
+          filedata: files[i]
+        });
       }
     }
+    setImages([...images, ...newImages]);
   };
+
 const uploadTest= () =>{
 
   images.forEach(selectedFile => {
@@ -78,10 +79,8 @@ const uploadTest= () =>{
     })
     .then(res => {
       console.log(res);
+      reloadGallery();
       deleteImage();
-      setTimeout(() => {
-        window.location.reload();
-      }, 500);
     })
     .catch((error) => console.error('Error uploading image', error))
   });

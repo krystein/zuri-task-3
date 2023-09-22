@@ -7,6 +7,11 @@ import ImageDetail from "./ImageDetail";
 const ImageGallery = () => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [accessToken, setAccessToken] = useState("");
+  const [galleryReloadKey, setGalleryReloadKey] = useState(0);
+
+  const reloadGallery = () => {
+    setGalleryReloadKey((prevKey) => prevKey + 1);
+  };
 
   useEffect(() => {
     if (isAuthenticated) {
@@ -27,8 +32,8 @@ const ImageGallery = () => {
       {isAuthenticated ? (
         <div>
           <h2>Welcome, {user.name}!</h2>
-          <DragDropImageloader accessToken={accessToken} />
-          <ImageDetail />
+          <DragDropImageloader accessToken={accessToken} reloadGallery={reloadGallery}/>
+          <ImageDetail accessToken={accessToken} key={galleryReloadKey} reloadGallery={reloadGallery}/>
         </div>
       ) : (
         <div>

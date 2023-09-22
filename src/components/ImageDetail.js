@@ -3,7 +3,7 @@ import axios from "axios";
 import _ from "lodash";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const ImageViewer = () => {
+const ImageViewer = ({reloadGallery}) => {
   const [imageUrls, setImageUrls] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search,setSearch] = useState('');
@@ -20,7 +20,8 @@ const ImageViewer = () => {
       setLoading(false);
       return ("Error fetching image URLs:", error);
     });
-}, []);
+}, [reloadGallery]);
+
 const handleChange=e=>{
   setSearch(e.target.value);
 }
@@ -57,7 +58,7 @@ const imageUrlsSearch = _.filter(imageUrls, (imageUrl) => {
           ) : (
             imageUrlsSearch.map((imageUrl, index) => (
             <div  key={index} className="col-sm-3 col-md-3 col-lg-3 p-2 card">
-              <img src={imageUrl.url} alt={`${index}`} className="img-fluid"/>
+              <img key={index} src={imageUrl.url} alt={`${index}`} className="img-fluid"/>
             </div>)
           ))}
         </div>
