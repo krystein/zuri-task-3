@@ -79,11 +79,12 @@ const Navbar = ({ toggle }) => {
         <div>
           <h1>WELCOME TO GALLERY</h1>
         </div>
-      </NavMenu>
         <NavBtn className="btn">
           <LoginButton/>
           <LogoutButton />
         </NavBtn>
+      </NavMenu>
+        
     </nav>
   );
 };
