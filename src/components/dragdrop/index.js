@@ -96,11 +96,12 @@ const uploadTest= () =>{
         onDragOver={onDragOver}
         onDragLeave={onDragLeave}
         onDrop={onDrop}
+        onClick={selectFiles}
       >
         {isDrag ? (
           <span className="select m-2">Drop images here</span>
         ) : (
-          <>
+          <div >
             Drag & Drop image here or{" "}
             <span
               className="select m-2"
@@ -109,7 +110,7 @@ const uploadTest= () =>{
             >
               Browse
             </span>
-          </>
+          </div>
         )}
         <input
           name="imageFile"
